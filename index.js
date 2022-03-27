@@ -2,7 +2,9 @@ function update() {
     console.log("Update List")
     aname = document.getElementById('title').value
     age = document.getElementById('age').value
-    if (!(aname == "" || age == "" )){
+    if ((aname == " " || age == " " )){
+        return
+    }
     
     
     if (localStorage.getItem('itemsJson') == null) {
@@ -33,19 +35,42 @@ function update() {
     });
 
     tableBody.innerHTML = str
-    }       
+           
 }
 
 add = document.getElementById("add");
 add.addEventListener("click", update);
-update();
+populate()
+
+function populate(){
+    itemJsonArrayStr = localStorage.getItem('itemsJson')
+    itemJsonArray = JSON.parse(itemJsonArrayStr)
+    localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+
+    let tableBody = document.getElementById('tableBody')
+    let str = ""
+    itemJsonArray.forEach((element, index) => {
+        str += `
+            <tr>
+                <th scope="row">${index+1}</th>
+                <td>${element[0]}</td>
+                <td>${element[1]}</td>
+                <td><button class="btn btn-sm btn-primary" onclick="deletevalue(${index})">Delete</button></td>
+            </tr>
+            `
+    });
+
+    tableBody.innerHTML = str
+}
 
 function deletevalue(itemIndex){
     itemJsonArrayStr = localStorage.getItem('itemsJson')
     itemJsonArray = JSON.parse(itemJsonArrayStr)
-    itemJsonArray.splice(itemIndex)
+    itemJsonArray.splice(itemIndex,1)
 
     localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
-    update()
+    populate()
 }
+
+
 
