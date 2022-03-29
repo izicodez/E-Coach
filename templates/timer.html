@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock title %} 
+
+{% block body %}
+
+<table class="table table-bordered " >
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">FirstName</th>
+          <th scope="col">User's Turn</th>
+          <th scope="col">All Time Average for 100m</th>
+          <th scope="col">All Time Average for 200m</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.item}}</td>
+        <td>True</td>
+        
+    </tr>
+</tbody>
+</table>
+<p class="text-center fs-4 fw-bold">All Time Average for 100m</p>
+<table class="table table-bordered " >
+  <tr>
+    <th scope="col">Time Started</th>
+    <th scope="col">Time Ended</th>
+</table>
+
+<p class="text-center fs-4 fw-bold">All Time Average for 200m</p>
+<table class="table table-bordered " >
+  <tr>
+    <th scope="col">Time Started</th>
+    <th scope="col">Time Ended</th>
+</table>
+
+{% endblock body %}

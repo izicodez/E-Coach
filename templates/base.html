@@ -35,9 +35,10 @@
                 <a class="nav-link" href="/contact">Contact Us</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" method="POST">
+              {% csrf_token %}
+              <input class="form-control me-2" type="search" placeholder="Add Athlete" aria-label="Search" name="item">
+              <button class="btn btn-outline-success" type="submit">Add Athlete</button>
             </form>
           </div>
         </div>
