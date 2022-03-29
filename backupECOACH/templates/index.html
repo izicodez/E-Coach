@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %} 
+
+{% block body %}
+<div class="Heading">
+    <h2 class="text-center"> E-Coach </h2>
+
+    <link rel="stylesheet" href="style.css">
+    <form>
+        <div class="attributes align-middle text-center">
+            <label for="title">Athelete Name</label>
+            <input type="text" id="title">
+        </div>
+        <div class="attributes text-center">
+            <label for="age">Age</label>
+            <input type="number" id="age">
+            <br>
+            <button id="add" class="btn btn-primary">Add Athelete</button>
+        </div>
+
+    </form>
+
+    <div class="items">
+        <h1>Your Items</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Athelete Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Delete User</th>
+                </tr>
+            <tbody id="tableBody">
+                <tr>
+                    <th scope="col">1</th>
+                    <th scope="col">Izhan</th>
+                    <th scope="col">20</th>
+                    <th scope="col">{{var1}}</th>
+                    <th scope="col">Delete User</th>
+                </tr>
+                <tr>
+                    <th scope="col">2</th>
+                    <th scope="col">Syed</th>
+                    <th scope="col">20</th>
+                    <th scope="col">{{var2}}</th>
+                    <th scope="col">Delete User</th>
+                </tr>
+                
+                </thead>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}
