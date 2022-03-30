@@ -38,8 +38,15 @@ def delete(request, list_id):
     #List gives a dictionary
     item= List.objects.get(pk=list_id)
     item.delete()
-    messages.success(request, ("Athlete Deleted"))
+    
     return redirect('home')
+
+def start(request, list_id):
+    #List gives a dictionary
+    item= List.objects.get(pk=list_id)
+    name = item.item # This will give me the name
+    
+    return render(request,'start.html', {'item':item})
 
 
 def timer(request,list_id):
@@ -57,7 +64,7 @@ def timer(request,list_id):
     else:
         item = List.objects.get(pk=list_id)
         return render(request, 'timer.html', {'item':item})
-
+    
     # context = {
     #     'var1':'21.00',
     #     'var2':'40.00'
