@@ -46,7 +46,7 @@ def start(request, list_id):
     item= List.objects.get(pk=list_id)
     name = item.item # This will give me the name
     
-    return render(request,'start.html', {'item':item})
+    return render(request,'start.html', {'item':item, 'lap':'', 'value':''})
 
 
 def timer(request,list_id):

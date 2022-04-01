@@ -11,6 +11,16 @@ import os
 
 from django.core.asgi import get_asgi_application
 
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+from ECoachApp.routing import ws_urlpatterns
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'projCoach.settings')
 
-application = get_asgi_application()
+# application is the instance of ProtocolTypeRouter
+# ProtocolTypeRouter takes dictionary as parameters
+application = ProtocolTypeRouter({
+    'http':get_asgi_application(),
+    'websocket': AuthMiddlewareStack(URLRouter(ws_urlpatterns))
+})
+

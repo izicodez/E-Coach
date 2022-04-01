@@ -30,6 +30,13 @@
   <tr>
     <th scope="col">Time Started</th>
     <th scope="col">Time Ended</th>
+
+    <tbody>
+      <tr>
+        <td id="lap">{{lap}}</td>
+          <td id="value">{{value}}</td>
+      </tr>
+  </tbody>
 </table>
 
 <p class="text-center fs-4 fw-bold">All Time Average for 200m</p>
@@ -37,6 +44,17 @@
   <tr>
     <th scope="col">Time Started</th>
     <th scope="col">Time Ended</th>
-</table>
 
+
+</table>
+<script>
+  var socket = new WebSocket('ws://localhost:8000/<list_id>/start/ws/')
+  socket.onmessage = function(){
+    var data = JSON.parse(event.data)
+    console.log(data)
+    document.querySelector('#lap').innerText = data.lapNumber
+    document.querySelector('#value').innerText = data.value
+  }
+</script>
 {% endblock body %}
+
