@@ -1,7 +1,7 @@
 # E-Coach
 Calculate Speed and display on a website
 
-How to Use:
+How to Use: <br />
 *Requirements - pip install django, channels*
 
 Phase 1 - run the web page <br />
