@@ -45,8 +45,10 @@ def start(request, list_id):
     #List gives a dictionary
     item= List.objects.get(pk=list_id)
     name = item.item # This will give me the name
-    
-    return render(request,'start.html', {'item':item, 'lap':'', 'value':''})
+    f = open('speed.txt', 'r')
+    speed = f.read()
+    f.close()    
+    return render(request,'start.html', {'item':item, 'lap':'', 'value':speed})
 
 
 def timer(request,list_id):

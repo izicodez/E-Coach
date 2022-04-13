@@ -48,6 +48,12 @@
 
 </table>
 <script>
+  setTimeout(function(){
+   window.location.reload();
+}, 5000);
+</script>
+
+<!-- <script>
   var socket = new WebSocket('ws://localhost:8000/<list_id>/start/ws/')
   socket.onmessage = function(){
     var data = JSON.parse(event.data)
@@ -55,6 +61,6 @@
     document.querySelector('#lap').innerText = data.lapNumber
     document.querySelector('#value').innerText = data.value
   }
-</script>
+</script> -->
 {% endblock body %}
 
