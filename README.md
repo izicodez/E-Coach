@@ -2,8 +2,9 @@
 Calculate Speed and display on a website
 
 How to Use: <br />
-*Requirements - pip install django, channels*
-
+```
+*pip install -r requirements.txt*
+```
 Phase 1 - run the web page <br />
 ---
 To run the webpage you must be in the E-Coach Folder. Execute the following command
