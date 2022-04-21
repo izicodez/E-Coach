@@ -3,7 +3,7 @@ Calculate Speed and display on a website
 
 How to Use: <br />
 ```
-*pip install -r requirements.txt*
+pip install -r requirements.txt
 ```
 Phase 1 - run the web page <br />
 ---
